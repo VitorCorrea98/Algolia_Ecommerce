@@ -7,3 +7,16 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=Vitor1998
       - MYSQL_DATABASE=eCommerce
+  backend:
+    build: ./backend
+    environment:
+      - DATABASE_DB=eCommerce
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=Vitor1998
+      - DATABASE_HOST=db
+    depends_on:
+      - db
+    volumes:
+      - ./backend/src:/app-backend/src
+      - ./backend/package.json:/app-backend/package.json
+      - ./backend/package-lock.json:/app-backend/package-lock.json
