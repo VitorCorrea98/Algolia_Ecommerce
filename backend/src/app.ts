@@ -1,4 +1,5 @@
 import express from 'express';
+import router from './Routes';
 
 class App {
   public app: express.Express;
@@ -6,7 +7,7 @@ class App {
   constructor() {
     this.app = express();
     this.config();
-    // this.routes();
+    this.routes();
   }
 
   private config():void {
@@ -21,9 +22,9 @@ class App {
     this.app.use(accessControl);
   }
 
-  // private routes() {
-   
-  // }
+  private routes() {
+   this.app.use(router);
+  }
 
   public start(PORT: string | number): void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));

@@ -5,7 +5,13 @@
   "module": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsnd --watch  \"./src/**\" --transpile-only ./src/server.ts --env-file /.env"
+    "dev": "tsnd --watch  \"./src/**\" --transpile-only ./src/server.ts --env-file /**/**/**/.env",
+    "seed": "cd src/database && npx prisma db seed",
+    "migrate": "cd src/database && npx prisma db push",
+    "db:reset": "npm rum migrate && npm run seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   },
   "keywords": [],
   "author": "",
