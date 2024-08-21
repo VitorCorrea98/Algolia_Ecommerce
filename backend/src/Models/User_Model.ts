@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 import { IUserModel } from '../Interfaces/User/CRUD/UserModel';
 import { IUser } from '../Interfaces/User';
 
-class UserModel implements IUserModel {
+export default class UserModel implements IUserModel {
   private prisma;
 
   constructor() {
@@ -24,5 +24,3 @@ class UserModel implements IUserModel {
     return user;
   }
 }
-
-export default UserModel;
