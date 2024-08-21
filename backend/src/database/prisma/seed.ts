@@ -1,4 +1,7 @@
+/* eslint-disable max-lines-per-function */
+
 import { PrismaClient } from '@prisma/client';
+import { products } from './produtcs/produtcsSeed';
 
 const prisma = new PrismaClient();
 async function main() {
@@ -11,7 +14,12 @@ async function main() {
       password: 'alice_secreta',
     },
   });
-  console.log({ alice });
+  const produtos = await Promise.all(products.map((product) => prisma.products.upsert({
+      where: { name: product.name },
+      update: {},
+      create: product,
+    })));
+  console.log({ alice, produtos });
 }
 main()
   .then(async () => {
