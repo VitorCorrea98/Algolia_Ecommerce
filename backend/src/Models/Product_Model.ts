@@ -9,7 +9,7 @@ export default class ProductModel implements IProductModel {
     this.prisma = new PrismaClient();
   }
 
-  public async getAll(): Promise<IProduct[]> {
+  public async getAll() {
     const products = await this.prisma.products.findMany();
     return products;
   }

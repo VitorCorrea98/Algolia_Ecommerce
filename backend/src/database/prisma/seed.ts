@@ -14,11 +14,11 @@ async function main() {
       password: 'alice_secreta',
     },
   });
-  const produtos = await Promise.all(products.map((product) => prisma.products.upsert({
-      where: { name: product.name },
-      update: {},
+  const produtos = products.forEach(async (product) => prisma.products.upsert({
+      where: product,
+      update: product,
       create: product,
-    })));
+    }));
   console.log({ alice, produtos });
 }
 main()
