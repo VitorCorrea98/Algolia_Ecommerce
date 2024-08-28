@@ -6,8 +6,8 @@ import { ShoppingBagIcon, UserIcon } from '@heroicons/react/16/solid'
 
 export default function Header() {
   return (
-    <header className='flex w-full items-center justify-around'>
-      <Image src='/RealLogoPhone.png' alt='App logo' width={110} height={1}/>
+    <header className='flex w-full items-center justify-around z-10'>
+      <Image src='/Logo.png' alt='App logo' height={100} width={100} priority/>
       <Navigation />
       <div className='flex gap-4'>
         <Input 
@@ -17,8 +17,8 @@ export default function Header() {
           autoFocus={false}
           autoComplete='off'
         />
-        <UserIcon height={30} color='#333c51'/>
-        <ShoppingBagIcon height={30} color='#333c51'/>
+        <UserIcon height={30} color='#456c7b'/>
+        <ShoppingBagIcon height={30} color='#456c7b'/>
       </div>
     </header>
   )

@@ -1,20 +1,20 @@
-'use client'
-import { useState } from "react";
-import Header from "./_components/Header";
+import TextHero from "./_components/Hero/TextHero";
+import PhoneTabs from "./_components/PhoneTabs";
+import dynamic from "next/dynamic";
 
-// async function getPhones() {
-//   const response = await fetch('http://localhost:3001/products');
-//   const data = await response.json() as ICellPhone[]
-
-//   return data;
-// }
+const Scene = dynamic(() => import('./(ThreeJS)/Scene'), { ssr: false });
 
 export default function Example() {
-  const [open, setOpen] = useState(false)
 
   return (
-    <div className="">
-      {/* <Header /> */}
-    </div>
+    <main>
+      <div className="relative -mt-16 h-screen -z-20">
+        <TextHero />
+        <Scene/>
+      </div>
+      <section id="phone-tabs">
+        <PhoneTabs />
+      </section>
+    </main>
   )
 }
